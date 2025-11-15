@@ -1,0 +1,74 @@
+.audio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.audio-item {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.audio-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.audio-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.audio-info {
+  flex: 1;
+}
+
+.audio-date {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.delete-button {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.delete-button:hover {
+  background: #ffebee;
+  opacity: 1;
+}
+
+.delete-button:active {
+  transform: scale(0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .audio-item {
+    padding: 12px;
+  }
+
+  .audio-date {
+    font-size: 0.85rem;
+  }
+
+  .delete-button {
+    font-size: 1.2rem;
+  }
+}

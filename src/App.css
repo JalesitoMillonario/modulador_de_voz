@@ -1,0 +1,106 @@
+.app {
+  max-width: 100%;
+  padding: 20px 0;
+}
+
+.app-header {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.recordings-section {
+  background: white;
+  border-radius: 20px;
+  padding: 25px 20px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.recordings-section h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recordings-section h2 .count {
+  background: #667eea;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.empty-state p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.empty-state .hint {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsive para iPhone */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px 0;
+  }
+
+  .app-header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+
+  .recordings-section {
+    padding: 20px 15px;
+    margin-top: 20px;
+  }
+
+  .recordings-section h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra pequeño para iPhone SE */
+@media (max-width: 375px) {
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .recordings-section h2 {
+    font-size: 1.1rem;
+  }
+}
