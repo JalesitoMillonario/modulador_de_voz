@@ -1,0 +1,81 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   🎙️  GRABADORA DE AUDIO - INSTALACIÓN EN IPHONE  📱         ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+👋 ¡Hola! Tu app está lista. Aquí está cómo instalarla en tu iPhone:
+
+═══════════════════════════════════════════════════════════════
+
+📋 PASOS RÁPIDOS:
+
+1️⃣  EN TU MAC - Abre Terminal y ejecuta:
+
+    cd modulador_de_voz
+    npm install
+    npm run dev
+
+2️⃣  OBTÉN TU IP - En otra terminal (o pestaña):
+
+    npm run ip
+
+    Te mostrará algo como:
+    📱 Tu IP local:
+       http://192.168.1.5:3000
+
+3️⃣  EN TU IPHONE - Abre Safari:
+
+    • Escribe la URL que obtuviste (ej: http://192.168.1.5:3000)
+    • Acepta el permiso del micrófono
+    • Toca el botón Compartir (↑)
+    • Selecciona "Agregar a pantalla de inicio"
+    • Toca "Agregar"
+
+4️⃣  ¡LISTO! Ya está instalada en tu iPhone como app nativa
+
+═══════════════════════════════════════════════════════════════
+
+📚 MÁS INFORMACIÓN:
+
+• Guía rápida (3 min):     INICIO_RAPIDO.md
+• Guía completa:           INSTALACION_IPHONE.md
+• Documentación técnica:   README.md
+
+═══════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANTE:
+
+✓ Tu Mac y iPhone deben estar en la MISMA red WiFi
+✓ Usa SAFARI en el iPhone (no Chrome)
+✓ El servidor debe estar corriendo (npm run dev)
+
+═══════════════════════════════════════════════════════════════
+
+💡 TIP: Para que funcione sin el servidor Mac:
+
+Lee INSTALACION_IPHONE.md → sección "Desplegar en Internet"
+(Vercel, Netlify o GitHub Pages - todo gratis)
+
+═══════════════════════════════════════════════════════════════
+
+🎨 ICONOS (opcional):
+
+La app funciona perfectamente sin iconos personalizados, pero si
+quieres un ícono bonito:
+
+Opción más fácil:
+1. Abre en tu navegador: public/generate-icons.html
+2. Haz clic en "Generar Iconos"
+3. Descarga cada imagen generada
+4. Listo, ya tendrás iconos personalizados
+
+Más info: public/LEEME_ICONOS.txt
+
+═══════════════════════════════════════════════════════════════
+
+🆘 ¿PROBLEMAS?
+
+Lee INSTALACION_IPHONE.md - tiene solución a problemas comunes
+
+═══════════════════════════════════════════════════════════════
