@@ -1,0 +1,24 @@
+📋 CÓMO GENERAR LOS ICONOS
+
+La app funciona sin iconos, pero para tener un ícono bonito en tu iPhone:
+
+OPCIÓN 1 - Automática (si tienes ImageMagick):
+  npm run icons
+
+OPCIÓN 2 - Manual con Preview de Mac:
+  1. Abre el archivo public/icon.svg con Preview (doble clic)
+  2. Ve a Archivo > Exportar
+  3. Selecciona formato PNG
+  4. Para cada uno de estos tamaños, guarda el archivo:
+     - icon-192.png → 192x192 píxeles
+     - icon-512.png → 512x512 píxeles
+     - apple-touch-icon.png → 180x180 píxeles
+  5. Guarda todos en la carpeta public/
+
+OPCIÓN 3 - Online (más fácil):
+  1. Ve a https://realfavicongenerator.net/
+  2. Sube el archivo public/icon.svg
+  3. Descarga el paquete generado
+  4. Copia los archivos PNG a public/
+
+Mientras tanto, la app funcionará perfectamente, solo usará un ícono por defecto.

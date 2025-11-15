@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Iconos</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generador de Iconos para PWA</h1>
+
+        <div class="instructions">
+            <h3>Instrucciones:</h3>
+            <ol>
+                <li>Haz clic en "Generar Iconos"</li>
+                <li>Haz clic derecho en cada imagen generada</li>
+                <li>Selecciona "Guardar imagen como..."</li>
+                <li>Guarda cada una con el nombre indicado en la carpeta <code>public/</code></li>
+            </ol>
+        </div>
+
+        <button onclick="generateIcons()">🚀 Generar Iconos</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function generateIcons() {
+            const sizes = [
+                { size: 192, name: 'icon-192.png' },
+                { size: 512, name: 'icon-512.png' },
+                { size: 180, name: 'apple-touch-icon.png' }
+            ];
+
+            const output = document.getElementById('output');
+            output.innerHTML = '<h3>Iconos generados:</h3>';
+
+            sizes.forEach(({ size, name }) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+
+                // Fondo con gradiente
+                const gradient = ctx.createLinearGradient(0, 0, size, size);
+                gradient.addColorStop(0, '#667eea');
+                gradient.addColorStop(1, '#764ba2');
+
+                // Dibujar fondo redondeado
+                const radius = size * 0.2;
+                ctx.beginPath();
+                ctx.moveTo(radius, 0);
+                ctx.lineTo(size - radius, 0);
+                ctx.quadraticCurveTo(size, 0, size, radius);
+                ctx.lineTo(size, size - radius);
+                ctx.quadraticCurveTo(size, size, size - radius, size);
+                ctx.lineTo(radius, size);
+                ctx.quadraticCurveTo(0, size, 0, size - radius);
+                ctx.lineTo(0, radius);
+                ctx.quadraticCurveTo(0, 0, radius, 0);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Dibujar micrófono simplificado
+                ctx.fillStyle = 'white';
+                ctx.globalAlpha = 0.95;
+
+                const centerX = size / 2;
+                const centerY = size / 2;
+                const micWidth = size * 0.18;
+                const micHeight = size * 0.27;
+
+                // Cuerpo del micrófono (rectángulo redondeado)
+                ctx.beginPath();
+                ctx.roundRect(
+                    centerX - micWidth/2,
+                    centerY - micHeight - size * 0.1,
+                    micWidth,
+                    micHeight,
+                    micWidth/2
+                );
+                ctx.fill();
+
+                // Soporte
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = size * 0.024;
+                ctx.lineCap = 'round';
+
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, size * 0.14, Math.PI * 0.8, Math.PI * 2.2);
+                ctx.stroke();
+
+                // Línea vertical
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX, centerY + size * 0.08);
+                ctx.stroke();
+
+                // Base
+                ctx.fillRect(
+                    centerX - size * 0.1,
+                    centerY + size * 0.08,
+                    size * 0.2,
+                    size * 0.024
+                );
+
+                // Punto rojo de grabación
+                const redDotSize = size * 0.07;
+                ctx.globalAlpha = 1;
+                ctx.fillStyle = '#ff4444';
+                ctx.beginPath();
+                ctx.arc(
+                    centerX + size * 0.25,
+                    centerY - size * 0.25,
+                    redDotSize,
+                    0,
+                    Math.PI * 2
+                );
+                ctx.fill();
+
+                // Añadir al DOM
+                const wrapper = document.createElement('div');
+                wrapper.style.margin = '20px 0';
+                wrapper.innerHTML = `
+                    <h4>${name}</h4>
+                    <p style="color: #666;">Haz clic derecho → Guardar imagen como... → ${name}</p>
+                `;
+                wrapper.appendChild(canvas);
+                output.appendChild(wrapper);
+
+                // También crear un enlace de descarga
+                const link = document.createElement('a');
+                link.download = name;
+                link.href = canvas.toDataURL('image/png');
+                link.textContent = '💾 Descargar ' + name;
+                link.style.display = 'inline-block';
+                link.style.marginTop = '10px';
+                link.style.padding = '8px 16px';
+                link.style.background = '#4CAF50';
+                link.style.color = 'white';
+                link.style.textDecoration = 'none';
+                link.style.borderRadius = '4px';
+                wrapper.appendChild(link);
+            });
+        }
+    </script>
+</body>
+</html>

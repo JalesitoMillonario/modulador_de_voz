@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host",
+    "ip": "echo '\n📱 Tu IP local:' && ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \"   http://\" $2 \":3000\"}' && echo '\n🔗 Abre esta URL en Safari de tu iPhone\n'",
+    "icons": "bash scripts/create-icons.sh"
   },
   "dependencies": {
     "react": "^18.2.0",
